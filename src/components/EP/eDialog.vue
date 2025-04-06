@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     :modelValue="visible"
-    title="Повідомлення!!!!!"
+    title="Повідомлення 12345"
     width="500"
     :before-close="handleClose"
   >
