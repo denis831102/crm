@@ -44,9 +44,15 @@ export const routes = [
   },
   {
     path: "/page8",
+    name: "crm",
     component: () => import("@/views/VPage8.vue"),
     meta: {
       requiresAuth: true,
     },
+  },
+  {
+    path: "/page9",
+    name: "authent",
+    component: () => import("@/views/VPage9.vue"),
   },
 ];

@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { routes } from "./routes";
 
-const isAuthenticated = true;
+import { useStore } from "vuex";
+import { computed } from "vue";
+
+//const isAuthenticated = true;
 
 const router = createRouter({
   history: createWebHistory(),
@@ -9,9 +12,15 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  if (to.meta.requiresAuth && !isAuthenticated) {
+  const store = useStore();
+  const getAuthenticated = computed(() => store.getters.getAuthenticated);
+  //const changeAuthenticated = (val) => store.commit("changeAuthenticated", val);
+  //const action = (val) => store.dispatch("action", val);
+
+  if (to.meta.requiresAuth && !getAuthenticated.value) {
+    //changeAuthenticated(true);
     return {
-      name: "main",
+      name: "authent",
     };
   }
 });

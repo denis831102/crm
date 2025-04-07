@@ -1,6 +1,8 @@
 import { createApp } from "vue";
 import App from "./App";
 //import App from "./views/VPage1";
+import router from "./router";
+import store from "./store";
 
 import PrimeVue from "primevue/config";
 import Noir from "./prime/presets/Noir.js";
@@ -12,10 +14,6 @@ import componentsUI from "@/components/UI";
 
 //import VIntersection from "./directives/VIntersection";
 import directives from "./directives";
-
-import store from "./store";
-
-import router from "./router";
 
 import pluginWord from "@/plugins/pluginWord";
 import { dictonary } from "@/plugins/dictonary";
