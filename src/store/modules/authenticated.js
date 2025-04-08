@@ -1,7 +1,7 @@
 export default {
   state: {
     isAuthenticated: false,
-    users: [{ login: "", password: 123 }],
+    users: [{ login: "", password: 111 }],
   },
   actions: {},
   mutations: {
