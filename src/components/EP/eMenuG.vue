@@ -27,24 +27,21 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 const router = useRouter();
-
 const activeIndex = ref("1");
 
-// const props = defineProps({
-//   dialog: Object,
-// });
+const store = useStore();
+const changeAuthenticated = (val) => store.commit("changeAuthenticated", val);
 
 const handleSelect = (key, keyPath) => {
   console.log(key, keyPath);
   switch (key) {
     case "1":
-      //   props.dialog.value.visible = true;
-      //   props.dialog.value.text = "Перевірка процеса";
-      //   this.$emit("update:dialog.value.visible", true);
       break;
     case "4":
+      changeAuthenticated(false);
       router.push({ name: "profile" });
       break;
   }

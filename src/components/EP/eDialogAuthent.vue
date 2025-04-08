@@ -20,7 +20,7 @@
     <template #footer>
       <div class="dialog-footer">
         <el-button type="primary" @click="enter">Увійти</el-button>
-        <el-button @click="$emit('update:visible', false)">Скасувати</el-button>
+        <el-button @click="close">Скасувати</el-button>
       </div>
     </template>
   </el-dialog>
@@ -28,6 +28,7 @@
 
 <script setup>
 import { reactive, defineProps, defineEmits, computed } from "vue";
+import { ElMessage } from "element-plus";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
@@ -56,10 +57,15 @@ const enter = () => {
     router.push({ name: "crm" });
   } else {
     router.push({ name: "profile" });
+    ElMessage.error("Oops, пароль не вірний");
   }
 };
 
-const handleClose = () => {
+const close = () => {
   router.push({ name: "profile" });
+};
+
+const handleClose = () => {
+  ElMessage.warning("Oops, для авторизації треба ввести логін і пароль");
 };
 </script>
