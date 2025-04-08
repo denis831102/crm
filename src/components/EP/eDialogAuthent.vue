@@ -14,7 +14,7 @@
         <el-input v-model="form.login" />
       </el-form-item>
       <el-form-item label="Пароль">
-        <el-input v-model="form.password" />
+        <el-input v-model="form.password" @keydown="changeKey" />
       </el-form-item>
     </el-form>
     <template #footer>
@@ -67,5 +67,11 @@ const close = () => {
 
 const handleClose = () => {
   ElMessage.warning("Oops, для авторизації треба ввести логін і пароль");
+};
+
+const changeKey = (event) => {
+  if (["Enter", "NumpadEnter"].includes(event.code)) {
+    enter();
+  }
 };
 </script>
