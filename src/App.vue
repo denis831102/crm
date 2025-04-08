@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="hMain" @click.prevent="$router.push({ name: 'profile' })">
-      Інформаційна система VUE 3 (testing)
+      Інформаційна система VUE 3 (testing 2)
     </h1>
     <RouterView class="sRout" />
   </div>
