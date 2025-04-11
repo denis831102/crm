@@ -8,7 +8,7 @@ export default {
 
       return (
         sentence
-          // .replace(",", "")
+          //.replace(",", "")
           .split(" ")
           .map((el) => {
             return options[el] ? options[el] : el;

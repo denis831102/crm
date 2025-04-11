@@ -42,7 +42,7 @@
 
           <el-container>
             <el-header style="text-align: right; font-size: 12px">
-              <eUserDrop :name="setting.name" />
+              <eUserDrop :name="getCurUser.PIB" />
             </el-header>
 
             <el-main>
@@ -62,6 +62,7 @@
 
 import "element-plus/dist/index.css";
 import { ref, computed, provide } from "vue";
+import { useStore } from "vuex";
 import { ElNotification } from "element-plus";
 import { Search } from "@element-plus/icons-vue";
 import eMenuV from "@/components/EP/eMenuV";
@@ -76,6 +77,9 @@ import eTable_2 from "@/components/EP/eTable_2";
 const arg = ref({
   text: "222",
 });
+
+const store = useStore();
+const getCurUser = computed(() => store.getters.getCurUser);
 
 const open = (obj) => {
   ElNotification({

@@ -14,11 +14,11 @@ const router = createRouter({
 router.beforeEach((to) => {
   const store = useStore();
   const getAuthenticated = computed(() => store.getters.getAuthenticated);
+  //const fetchUsers = () => store.dispatch("fetchUsers");
   //const changeAuthenticated = (val) => store.commit("changeAuthenticated", val);
   //const action = (val) => store.dispatch("action", val);
 
   if (to.meta.requiresAuth && !getAuthenticated.value) {
-    //changeAuthenticated(true);
     return {
       name: "authent",
     };

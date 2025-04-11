@@ -10,11 +10,18 @@
       label-width="auto"
       style="max-width: 600px; border: 0"
     >
-      <el-form-item label="Прізвище">
+      <el-form-item label="Логін">
         <el-input v-model="form.login" />
       </el-form-item>
       <el-form-item label="Пароль">
-        <el-input v-model="form.password" @keydown="changeKey" />
+        <el-input
+          v-model="form.password"
+          @keydown="changeKey"
+          type="password"
+          show-password="true"
+          placeholder="please input"
+          :autofocus="autoFoc"
+        />
       </el-form-item>
     </el-form>
     <template #footer>
@@ -27,7 +34,14 @@
 </template>
 
 <script setup>
-import { reactive, defineProps, defineEmits, computed } from "vue";
+import {
+  reactive,
+  defineProps,
+  defineEmits,
+  computed,
+  onMounted,
+  ref,
+} from "vue";
 import { ElMessage } from "element-plus";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
@@ -43,17 +57,22 @@ const form = reactive({
   password: "",
 });
 
+const autoFoc = ref(false);
+
 const store = useStore();
-const getUsers = computed(() => store.getters.getUsers);
-const changeAuthenticated = (val) => store.commit("changeAuthenticated", val);
+const checkAuthenticated = (val) => store.dispatch("checkAuthenticated", val);
+const fetchUsers = () => store.dispatch("fetchUsers");
+const getAuthenticated = computed(() => store.getters.getAuthenticated);
+//const changeAuthenticated = (val) => store.commit("changeAuthenticated", val);
 
 const router = useRouter();
 
 const enter = () => {
   emit("update:visible", false);
 
-  if (+form.password == getUsers.value[0].password) {
-    changeAuthenticated(true);
+  checkAuthenticated(form);
+
+  if (getAuthenticated.value) {
     router.push({ name: "crm" });
   } else {
     router.push({ name: "profile" });
@@ -74,4 +93,6 @@ const changeKey = (event) => {
     enter();
   }
 };
+
+onMounted(fetchUsers);
 </script>

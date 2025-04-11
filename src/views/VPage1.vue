@@ -7,7 +7,8 @@
     <div class="cForm">
       <h3>Робота плагіна</h3>
       <br />
-      {{ $translate("hello frend, what is your name") }}
+      {{ $translate(title) }}
+      <!-- {{ title }} -->
       <br /><br />
       {{ $word.pidkreslenja("hello frend, what is your name") }}
       <br /><br />

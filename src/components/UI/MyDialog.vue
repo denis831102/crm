@@ -1,11 +1,11 @@
 <template>
-  <teleport to="body">
-    <div class="dialog" v-if="show" @click="hideDialog">
-      <div @click.stop class="dialog__content">
-        <slot> </slot>
-      </div>
+  <!-- <teleport to="body"> -->
+  <div class="dialog" v-if="show" @click="hideDialog">
+    <div @click.stop class="dialog__content">
+      <slot> </slot>
     </div>
-  </teleport>
+  </div>
+  <!-- </teleport> -->
 </template>
 
 <script>
