@@ -2,7 +2,7 @@
   <el-dialog
     :modelValue="props.visible"
     title="Авторизація"
-    width="500"
+    width="400"
     :before-close="handleClose"
   >
     <el-form
@@ -75,8 +75,8 @@ const enter = () => {
   if (getAuthenticated.value) {
     router.push({ name: "crm" });
   } else {
-    router.push({ name: "profile" });
     ElMessage.error("Oops, пароль не вірний");
+    close();
   }
 };
 

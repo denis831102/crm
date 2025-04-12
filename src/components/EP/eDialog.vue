@@ -2,7 +2,7 @@
   <el-dialog
     :modelValue="visible"
     title="Повідомлення 555"
-    width="500"
+    width="400"
     :before-close="handleClose"
   >
     <span>{{ props.dialogText }}</span>

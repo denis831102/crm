@@ -51,8 +51,8 @@ export const routes = [
     },
   },
   {
-    path: "/page9",
+    path: "/authent",
     name: "authent",
-    component: () => import("@/views/VPage9.vue"),
+    component: () => import("@/views/VAuthend.vue"),
   },
 ];

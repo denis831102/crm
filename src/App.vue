@@ -3,7 +3,9 @@
     <h1 class="hMain" @click.prevent="$router.push({ name: 'profile' })">
       Інформаційна система VUE 3
     </h1>
-    <RouterView class="sRout" />
+    <transition name="component-fade" mode="out-in">
+      <RouterView class="sRout" />
+    </transition>
   </div>
 </template>
 
@@ -29,5 +31,15 @@
   margin: 10px 0;
   background: #f4f7f7;
   padding: 20px 0;
+}
+
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.component-fade-enter-from,
+.component-fade-leave-to {
+  opacity: 0;
 }
 </style>
