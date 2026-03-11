@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="hMain" @click.prevent="$router.push({ name: 'profile' })">
-      Інформаційна система VUE 3
+      Інформаційна система VUE 3 (stackblitz)
     </h1>
     <transition name="component-fade" mode="out-in">
       <RouterView class="sRout" />
