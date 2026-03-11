@@ -50,9 +50,4 @@ export const routes = [
       requiresAuth: true,
     },
   },
-  {
-    path: "/authent",
-    name: "authent",
-    component: () => import("@/views/VAuthend.vue"),
-  },
 ];

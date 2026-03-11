@@ -4,12 +4,6 @@ import App from "./App";
 import router from "./router";
 import store from "./store";
 
-import PrimeVue from "primevue/config";
-import Noir from "./prime/presets/Noir.js";
-
-import ElementPlus from "element-plus";
-import * as ElementPlusIconsVue from "@element-plus/icons-vue";
-
 import componentsUI from "@/components/UI";
 
 //import VIntersection from "./directives/VIntersection";
@@ -28,18 +22,6 @@ componentsUI.forEach((component) => {
 directives.forEach((directive) => {
   app.directive(directive.name, directive);
 });
-
-app.use(PrimeVue, {
-  theme: {
-    preset: Noir,
-  },
-});
-
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(key, component);
-}
-
-app.use(ElementPlus);
 
 app.use(pluginWord, dictonary).use(router).use(store).mount("#app");
 // app.use(router).use(store).mount("#app");

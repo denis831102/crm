@@ -1,5 +1,6 @@
 <template>
   <div class="cMain">
+    <!-- @changeText="changeText" -->
     <PostForm @create="createPost" class="cForm" :idPost="newId" />
 
     <post-list :posts="posts" @remove="removePost"></post-list>
@@ -7,12 +8,12 @@
     <div class="cForm">
       <h3>Робота плагіна</h3>
       <br />
-      {{ $translate(title) }}
+      {{ $translate(myText) }}
       <!-- {{ title }} -->
       <br /><br />
       {{ $word.pidkreslenja("hello frend, what is your name") }}
       <br /><br />
-      {{ $word.hightRegistry(this.title) }}
+      {{ $word.hightRegistry(myText) }}
     </div>
   </div>
 </template>
@@ -34,7 +35,7 @@ export default {
         { id: 2, title: "Javascript", body: "Дуже важливий опис 2" },
         { id: 3, title: "Phyton", body: "Дуже важливий опис 3" },
       ],
-      title: "hello frend, what is your name",
+      myText: "hello frend, what is your name!",
       // body: "",
     };
   },
@@ -52,12 +53,15 @@ export default {
       this.posts = this.posts.filter((p) => p.id !== post.id);
       // this.posts.splice(ind, 1);
     },
+    // changeText(post) {
+    //   this.myText = post.title;
+    // },
   },
   computed: {
     newId() {
       return this.posts.reduce(
         (maxId, curObj) => (curObj.id > maxId ? curObj.id : maxId),
-        0
+        0,
       );
       // return this.posts.length;
     },

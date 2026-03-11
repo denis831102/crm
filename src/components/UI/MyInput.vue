@@ -22,7 +22,8 @@ export default {
     updateInput(event) {
       let val = event.target.value;
       if (this.modelModifiers.capitalize) {
-        val = val.charAt(0).toUpperCase() + val.slice(1);
+        // val = val.charAt(0).toUpperCase() + val.slice(1);
+        val = `${val.charAt(0).toUpperCase()}${val.slice(1)}`;
       }
       this.$emit("update:modelValue", val);
     },

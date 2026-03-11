@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       curInd: 0,
-      kafedra: "ІТП 2025",
+      kafedra: "ІТП 2026",
       options: [
         {
           link: "/page1",

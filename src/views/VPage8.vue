@@ -60,19 +60,8 @@
 <script setup>
 /* eslint-disable */
 
-import "element-plus/dist/index.css";
 import { ref, computed, provide } from "vue";
 import { useStore } from "vuex";
-import { ElNotification } from "element-plus";
-import { Search } from "@element-plus/icons-vue";
-import eMenuV from "@/components/EP/eMenuV";
-import eMenuG from "@/components/EP/eMenuG";
-import eUserDrop from "@/components/EP/eUserDrop";
-import eDialog from "@/components/EP/eDialog";
-import eDialogEdit from "@/components/EP/eDialogEdit";
-import eDialogUser from "@/components/EP/eDialogUser";
-import eTable_1 from "@/components/EP/eTable_1";
-import eTable_2 from "@/components/EP/eTable_2";
 
 const arg = ref({
   text: "222",

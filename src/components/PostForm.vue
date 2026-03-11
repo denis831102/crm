@@ -1,10 +1,17 @@
 <template>
   <!--  eslint-disable  -->
+
+  <!-- <form> -->
   <form @submit.prevent="createPost">
     <h3>Створення поста</h3>
     <my-input v-model.capitalize="post.title" placeholder="Назва" />
     <my-input v-model.number="post.body" placeholder="Опис" />
     <my-button class="btn">Створити</my-button>
+
+    <!-- <div class="grBut">
+      <my-button @click.prevent="changeText" class="btn">В плагін</my-button>
+      <my-button @click.prevent="createPost" class="btn">Створити</my-button>
+    </div> -->
   </form>
 </template>
 
@@ -41,6 +48,9 @@ export default {
         body: "",
       };
     },
+    changeText() {
+      this.$emit("changeText", this.post);
+    },
   },
   // watch: {
   //   post: {
@@ -60,5 +70,10 @@ form {
   border: 1px solid teal;
   padding: 5px 20px;
   background: white;
+}
+.grBut {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 </style>
